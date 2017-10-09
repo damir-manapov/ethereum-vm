@@ -10,11 +10,10 @@ import static ru.damirmanapov.Processor.process;
 import static ru.damirmanapov.TestUtil.stateEqual;
 
 @Test
-public class StateMachineTest {
+public class ProcessorTest {
 
     @Test
     public void test_simple() {
-
 
         State initialState = new State();
 
@@ -27,12 +26,13 @@ public class StateMachineTest {
         program.add(STOP_COMMAND);
 
         State expectedState = new State();
-        expectedState.setPc(6);
         expectedState.setStack(15);
+        expectedState.setPc(6);
 
         State actualState = process(program, initialState);
 
         stateEqual(actualState, expectedState);
+
     }
 
 }
