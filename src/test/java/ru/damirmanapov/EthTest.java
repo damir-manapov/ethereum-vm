@@ -23,8 +23,7 @@ public class EthTest {
 
         State expectedState_1 = new State();
         List<Integer> program = new LinkedList();
-        State actualState_1 = process(program, initialState);
-        stateEqual(actualState_1, expectedState_1);
+        stateEqual(process(program, initialState), expectedState_1);
 
 
 //      PUSH1 0
@@ -36,9 +35,7 @@ public class EthTest {
         program.add(PUSH1_COMMAND);
         program.add(0);
 
-        State actualState_2 = process(program, initialState);
-
-        stateEqual(actualState_2, expectedState_2);
+        stateEqual(process(program, initialState), expectedState_2);
 
 
 //      CALLDATALOAD
@@ -56,9 +53,7 @@ public class EthTest {
 
         program.add(CALLDATALOAD_COMMAND);
 
-        State actualState_3 = process(program, initialState);
-
-        stateEqual(actualState_3, expectedState_3);
+        stateEqual(process(program, initialState), expectedState_3);
 
 
 //      SLOAD
@@ -74,9 +69,7 @@ public class EthTest {
 
         program.add(SLOAD_COMMAND);
 
-        State actualState_4 = process(program, initialState);
-
-        stateEqual(actualState_4, expectedState_4);
+        stateEqual(process(program, initialState), expectedState_4);
 
 
 //      NOT pops one value and pushes 1 if the value is zero, else 0
@@ -89,9 +82,7 @@ public class EthTest {
 
         program.add(NOT_COMMAND);
 
-        State actualState_5 = process(program, initialState);
-
-        stateEqual(actualState_5, expectedState_5);
+        stateEqual(process(program, initialState), expectedState_5);
 
 
 //      Next, we PUSH1 9.
@@ -105,9 +96,7 @@ public class EthTest {
         program.add(PUSH1_COMMAND);
         program.add(9);
 
-        State actualState_6 = process(program, initialState);
-
-        stateEqual(actualState_6, expectedState_6);
+        stateEqual(process(program, initialState), expectedState_6);
 
 
 //      The JUMPI instruction pops 2 values and jumps to the instruction designated by
@@ -124,9 +113,7 @@ public class EthTest {
 
         program.add(JUMPI_COMMAND);
 
-        State actualState_7 = process(program, initialState);
-
-        stateEqual(actualState_7, expectedState_7);
+        stateEqual(process(program, initialState), expectedState_7);
 
 
 //      Here, we PUSH1 32.
@@ -141,9 +128,7 @@ public class EthTest {
         program.add(PUSH1_COMMAND);
         program.add(32);
 
-        State actualState_8 = process(program, initialState);
-
-        stateEqual(actualState_8, expectedState_8);
+        stateEqual(process(program, initialState), expectedState_8);
 
 
 //      Now, we CALLDATALOAD again, popping 32 and pushing the bytes in message data starting from byte 32 until byte 63.
@@ -156,9 +141,7 @@ public class EthTest {
 
         program.add(CALLDATALOAD_COMMAND);
 
-        State actualState_9 = process(program, initialState);
-
-        stateEqual(actualState_9, expectedState_9);
+        stateEqual(process(program, initialState), expectedState_9);
 
 
 //      Next, we PUSH1 0.
@@ -172,9 +155,7 @@ public class EthTest {
         program.add(PUSH1_COMMAND);
         program.add(0);
 
-        State actualState_10 = process(program, initialState);
-
-        stateEqual(actualState_10, expectedState_10);
+        stateEqual(process(program, initialState), expectedState_10);
 
 
 //      Now, we load message data bytes 0-31 again (loading message data is just as cheap as loading memory, so we don't bother to save it in memory)
@@ -187,9 +168,7 @@ public class EthTest {
 
         program.add(CALLDATALOAD_COMMAND);
 
-        State actualState_11 = process(program, initialState);
-
-        stateEqual(actualState_11, expectedState_11);
+        stateEqual(process(program, initialState), expectedState_11);
 
 
 //      Finally, we SSTORE to save the value 2020202020 in storage at index 54.
@@ -201,9 +180,7 @@ public class EthTest {
 
         program.add(SSTORE_COMMAND);
 
-        State actualState_12 = process(program, initialState);
-
-        stateEqual(actualState_12, expectedState_12);
+        stateEqual(process(program, initialState), expectedState_12);
 
     }
 
