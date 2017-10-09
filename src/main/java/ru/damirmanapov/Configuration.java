@@ -17,5 +17,8 @@ public class Configuration {
     public static final int DIVIDE_COMMAND = 4;
 
     public static final int PUSH_COMMAND = 5;
+    public static final int PULL_COMMAND = 6;
+
+    public static final int TERMINATE_COMMAND = 20;
 
 }
